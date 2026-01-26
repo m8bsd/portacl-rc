@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Simple Blog</title></head>
+<body>
+<h1>My Blog</h1>
+
+<form method="post" action="/post">
+    <input name="title" placeholder="Title"><br><br>
+    <textarea name="content" placeholder="Write something..."></textarea><br><br>
+    <button type="submit">Publish Post</button>
+</form>
+
+<h2>Posts</h2>
+<ul>
+    <th:block th:each="post : ${posts}">
+        <li>
+            <a th:href="@{'/post/' + ${post.id}}"
+               th:text="${post.title}"></a>
+        </li>
+    </th:block>
+</ul>
+
+</body>
+</html>
